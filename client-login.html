@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Login | D Art Graphic</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            light: '#f8fafc',
+                            accent: '#8b5cf6',
+                            secondary: '#ec4899',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen">
+    <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl w-full max-w-md border border-gray-700">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-white">Client Portal</h2>
+            <p class="text-gray-400">Manage your profile & projects</p>
+        </div>
+
+        <form id="clientLoginForm" class="space-y-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                <input type="email" id="clientEmail" required
+                    class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-brand-accent transition-colors"
+                    placeholder="user@example.com">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-400 mb-2">Password</label>
+                <input type="password" id="clientPassword" required
+                    class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-brand-accent transition-colors"
+                    placeholder="••••••••">
+            </div>
+
+            <div id="errorMessage" class="text-red-500 text-sm text-center hidden">Invalid credentials</div>
+
+            <button type="submit"
+                class="w-full bg-brand-secondary hover:bg-pink-600 text-white font-bold py-3 rounded-lg transition-all shadow-lg hover:shadow-pink-500/30">
+                Log In
+            </button>
+        </form>
+
+        <div class="mt-6 text-center border-t border-gray-700 pt-4 space-y-2">
+            <p class="text-gray-400 text-sm">New User? <a href="signup.html"
+                    class="text-brand-secondary hover:underline font-bold">Create Profile</a></p>
+            <p class="text-gray-500 text-xs"><a href="contact.html" class="hover:text-white">Need Help?</a></p>
+        </div>
+    </div>
+
+    <script src="js/user-core.js"></script>
+    <script>
+        // Simple client-side auth logic bridge (rest is in user-core.js)
+        document.getElementById('clientLoginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.getElementById('clientEmail').value.trim().toLowerCase();
+            const pwd = document.getElementById('clientPassword').value;
+
+            // Fetch stored users
+            const users = JSON.parse(localStorage.getItem('dart_users')) || {};
+
+            if (users[email] && users[email].password === pwd) {
+                // Success
+                localStorage.setItem('dart_current_user', email);
+                window.location.href = "profile.html";
+            } else {
+                // Fail
+                const err = document.getElementById('errorMessage');
+                err.textContent = "Invalid email or password";
+                err.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

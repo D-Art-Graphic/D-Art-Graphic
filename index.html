@@ -1,0 +1,497 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D Art Graphic | Premium Design Services</title>
+
+    <!-- Tailwind CSS (via CDN for no-node requirement) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // ✅ enable class-based dark mode
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            light: '#f8fafc',
+                            accent: '#8b5cf6', // Violet
+                            secondary: '#ec4899', // Pink
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Ionicons for Icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ✅ Light mode default navbar glass */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        /* ✅ Dark mode navbar glass */
+        html.dark .glass-nav {
+            background: rgba(15, 23, 42, 0.80);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ✅ Light mode hero background */
+        .hero-bg {
+            background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.18), #ffffff 45%);
+        }
+
+        /* ✅ Dark mode hero background */
+        html.dark .hero-bg {
+            background: radial-gradient(circle at top right, #1e1b4b, #0f172a 40%);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-white text-gray-900 dark:bg-brand-dark dark:text-white overflow-x-hidden transition-colors duration-300 selection:bg-brand-accent selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <!-- LOGO OPTION: Paste your logo image in 'images/' folder and update src below -->
+                        <img src="images/logo.svg" alt="Logo" class="h-10 w-auto object-contain logo-img">
+
+                        <!-- TEXT OPTION: You can remove this span if you only want the image logo -->
+                        <span
+                            class="text-2xl font-bold tracking-tighter group-hover:text-brand-accent transition-colors">
+                            <span class="site-title">D Art</span> <span
+                                class="text-brand-accent site-highlight">Graphic</span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-gray-900 dark:text-white hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="portfolio.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Our
+                            Work</a>
+                        <a href="services.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="about.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="contact.html"
+                            class="bg-brand-accent hover:bg-violet-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-lg shadow-violet-500/30">Contact
+                            Us</a>
+
+                        <!-- ✅ Theme Toggle Button (Desktop) -->
+                        <button id="theme-toggle"
+                            class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md transition-colors"
+                            title="Toggle theme" type="button">
+                            <ion-icon id="theme-icon" name="moon-outline" class="text-2xl"></ion-icon>
+                        </button>
+
+                        <a href="profile.html"
+                            class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                            title="My Profile"><ion-icon name="person-circle" class="text-2xl"></ion-icon></a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden items-center gap-2">
+                    <!-- ✅ Theme Toggle Button (Mobile - icon only) -->
+                    <button id="theme-toggle-mobile"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 focus:outline-none"
+                        title="Toggle theme" type="button">
+                        <ion-icon id="theme-icon-mobile" name="moon-outline" class="text-2xl"></ion-icon>
+                    </button>
+
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 focus:outline-none"
+                        aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-btn">
+                        <span class="sr-only">Open main menu</span>
+                        <ion-icon name="menu-outline" class="text-3xl"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden bg-white dark:bg-gray-900 absolute w-full border-b border-gray-200 dark:border-gray-800"
+            id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html"
+                    class="text-gray-900 dark:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="portfolio.html"
+                    class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium">Our
+                    Work</a>
+                <a href="services.html"
+                    class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="about.html"
+                    class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="contact.html"
+                    class="text-brand-accent block px-3 py-2 rounded-md text-base font-medium font-bold">Contact Us</a>
+                <a href="profile.html"
+                    class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium border-t border-gray-200 dark:border-gray-800 mt-2 pt-2">My
+                    Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-bg min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
+        <!-- Floating shapes background -->
+        <div
+            class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float">
+        </div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"
+            style="animation-delay: 2s;"></div>
+
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left">
+                <span
+                    class="inline-block py-1 px-3 rounded-full bg-white/70 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-brand-accent text-sm font-semibold mb-6">
+                    ✨ Elevate Your Brand Identity
+                </span>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                    <span id="hero-title-1">We Create</span> <br>
+                    <span class="text-gradient" id="hero-title-2">Digital Masterpieces</span>
+                </h1>
+                <p class="mt-4 text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto md:mx-0"
+                    id="hero-subtitle">
+                    Transform your vision into stunning visuals. Professional graphic design services tailored for
+                    modern businesses.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="portfolio.html"
+                        class="bg-gray-900 dark:bg-white text-white dark:text-brand-dark hover:bg-gray-800 dark:hover:bg-gray-200 font-bold py-4 px-8 rounded-full transition-all transform hover:scale-105 shadow-xl">
+                        View Our Work
+                    </a>
+                    <a href="contact.html"
+                        class="border border-gray-400 dark:border-gray-600 hover:border-gray-900 dark:hover:border-white text-gray-900 dark:text-white font-bold py-4 px-8 rounded-full transition-all hover:bg-black/5 dark:hover:bg-white/10">
+                        Get a Quote
+                    </a>
+                </div>
+
+                <div class="mt-12 flex items-center justify-center md:justify-start gap-8 text-gray-500 dark:text-gray-500">
+                    <div class="flex items-center gap-2">
+                        <ion-icon name="checkmark-circle" class="text-brand-accent text-xl"></ion-icon>
+                        <span class="text-sm">Premium Quality</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <ion-icon name="checkmark-circle" class="text-brand-accent text-xl"></ion-icon>
+                        <span class="text-sm">Fast Delivery</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <ion-icon name="checkmark-circle" class="text-brand-accent text-xl"></ion-icon>
+                        <span class="text-sm">Unlimited Revisions</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative hidden md:block group">
+                <!-- Decorative Image Container -->
+                <div class="relative w-full aspect-square max-w-md mx-auto">
+                    <!-- Glass card effect -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-brand-accent/20 to-transparent rounded-3xl transform rotate-6 border border-black/10 dark:border-white/10 backdrop-blur-sm">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-white/70 dark:bg-slate-800 rounded-3xl transform -rotate-3 overflow-hidden shadow-2xl border border-gray-200 dark:border-slate-700 group-hover:rotate-0 transition-transform duration-500 ease-out">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b79931ad95b?q=80&w=2071&auto=format&fit=crop"
+                            alt="Abstract 3D Art"
+                            class="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                        <!-- Overlay Text -->
+                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                            <p class="text-white font-bold text-lg">Modern Aesthetics</p>
+                            <p class="text-gray-300 text-sm">Design that speaks volumes</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Floating elements -->
+                <div class="absolute -top-10 -right-10 bg-white/80 dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-gray-200 dark:border-slate-700 animate-float"
+                    style="animation-delay: 1s;">
+                    <ion-icon name="color-palette" class="text-4xl text-pink-500"></ion-icon>
+                </div>
+                <div class="absolute -bottom-5 -left-5 bg-white/80 dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-gray-200 dark:border-slate-700 animate-float"
+                    style="animation-delay: 2.5s;">
+                    <ion-icon name="shapes" class="text-4xl text-brand-accent"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Preview -->
+    <section class="py-20 bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Our Expertise</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-brand-accent to-brand-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">Everything you need to build a powerful brand</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div
+                    class="p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 hover:border-brand-accent transition-all duration-300 group hover:-translate-y-2 shadow-sm">
+                    <div
+                        class="w-14 h-14 bg-gray-100 dark:bg-slate-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-accent transition-colors">
+                        <ion-icon name="pencil" class="text-2xl text-gray-900 dark:text-white group-hover:text-white"></ion-icon>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">Logo Design</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Unique, memorable logos that define your brand identity and leave a lasting
+                        impression.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div
+                    class="p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 hover:border-brand-accent transition-all duration-300 group hover:-translate-y-2 shadow-sm">
+                    <div
+                        class="w-14 h-14 bg-gray-100 dark:bg-slate-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-accent transition-colors">
+                        <ion-icon name="globe" class="text-2xl text-gray-900 dark:text-white group-hover:text-white"></ion-icon>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">Social Media</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Eye-catching posts, stories, and banners designed to boost engagement and
+                        followers.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div
+                    class="p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 hover:border-brand-accent transition-all duration-300 group hover:-translate-y-2 shadow-sm">
+                    <div
+                        class="w-14 h-14 bg-gray-100 dark:bg-slate-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-accent transition-colors">
+                        <ion-icon name="laptop" class="text-2xl text-gray-900 dark:text-white group-hover:text-white"></ion-icon>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">Web UI/UX</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Beautiful, user-friendly website interfaces that convert visitors into
+                        customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery (Horizontal Scroll) -->
+    <section class="py-20 bg-white dark:bg-brand-dark overflow-hidden transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <div class="flex justify-between items-end">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-2">Featured Work</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Some of our best creations</p>
+                </div>
+                <a href="portfolio.html"
+                    class="hidden md:flex items-center text-brand-accent font-semibold hover:text-gray-900 dark:hover:text-white transition-colors">
+                    View All Projects <ion-icon name="arrow-forward" class="ml-2"></ion-icon>
+                </a>
+            </div>
+        </div>
+
+        <!-- Gallery Strip -->
+        <div
+            class="flex space-x-6 overflow-x-auto pb-8 px-4 md:px-0 md:pl-[max(1rem,calc((100vw-80rem)/2))] scrollbar-hide">
+            <!-- Item 1 -->
+            <div
+                class="flex-none w-80 md:w-96 aspect-[4/5] relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg">
+                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2727&auto=format&fit=crop"
+                    alt="Project 1"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
+                </div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <span class="text-brand-accent text-xs font-bold uppercase tracking-wider">Branding</span>
+                    <h3 class="text-2xl font-bold text-white mt-1">Neon Cafe</h3>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div
+                class="flex-none w-80 md:w-96 aspect-[4/5] relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
+                    alt="Project 2"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
+                </div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <span class="text-pink-500 text-xs font-bold uppercase tracking-wider">Social Media</span>
+                    <h3 class="text-2xl font-bold text-white mt-1">Fitness Pro</h3>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div
+                class="flex-none w-80 md:w-96 aspect-[4/5] relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop"
+                    alt="Project 3"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
+                </div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <span class="text-blue-400 text-xs font-bold uppercase tracking-wider">Web Design</span>
+                    <h3 class="text-2xl font-bold text-white mt-1">Tech Startup</h3>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div
+                class="flex-none w-80 md:w-96 aspect-[4/5] relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg">
+                <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=2670&auto=format&fit=crop"
+                    alt="Project 4"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
+                </div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <span class="text-brand-accent text-xs font-bold uppercase tracking-wider">Package Design</span>
+                    <h3 class="text-2xl font-bold text-white mt-1">Organic Juice</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 relative overflow-hidden transition-colors duration-300">
+        <div class="absolute inset-0 bg-gradient-to-r from-violet-900 to-fuchsia-900 opacity-15 dark:opacity-20"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">Ready to Start?</h2>
+            <p class="text-xl text-gray-700 dark:text-gray-300 mb-10">Let's turn your ideas into a visual reality. Contact us today for a
+                free consultation.</p>
+            <a href="contact.html"
+                class="inline-block bg-gray-900 dark:bg-white text-white dark:text-brand-dark hover:bg-gray-800 dark:hover:bg-gray-100 font-bold py-4 px-12 rounded-full text-lg transition-all transform hover:scale-105 shadow-2xl shadow-brand-accent/30">
+                Contact Us Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-black py-12 border-t border-gray-200 dark:border-gray-900 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="#" class="text-2xl font-bold text-gray-900 dark:text-white tracking-tighter mb-4 block">
+                        D Art <span class="text-brand-accent">Graphic</span>
+                    </a>
+                    <p class="text-gray-600 dark:text-gray-500 max-w-sm">Premium graphic design services for brands that want to stand out.
+                        Quality, creativity, and speed.</p>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li><a href="index.html" class="hover:text-brand-accent transition-colors">Home</a></li>
+                        <li><a href="portfolio.html" class="hover:text-brand-accent transition-colors">Our Work</a>
+                        </li>
+                        <li><a href="services.html" class="hover:text-brand-accent transition-colors">Services</a></li>
+                        <li><a href="about.html" class="hover:text-brand-accent transition-colors">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex items-center gap-2"><ion-icon name="mail"></ion-icon> hello@dartgraphic.com</li>
+                        <li class="flex items-center gap-2"><ion-icon name="call"></ion-icon> +1 234 567 890</li>
+                        <li class="flex items-center gap-2"><ion-icon name="location"></ion-icon> Colombo, Sri Lanka
+                        </li>
+                    </ul>
+                    <div class="flex gap-4 mt-6">
+                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white text-xl"><ion-icon
+                                name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white text-xl"><ion-icon
+                                name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white text-xl"><ion-icon
+                                name="logo-twitter"></ion-icon></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-900 mt-12 pt-8 text-center text-gray-600 dark:text-gray-600 text-sm">
+                &copy; 2026 D Art Graphic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="js/cms.js"></script>
+
+    <!-- Hidden Admin Link (Double click footer copyright to access) -->
+    <script>
+        document.querySelector('footer div.text-gray-600, footer div.dark\\:text-gray-600')?.addEventListener('dblclick', () => window.location.href = 'login.html');
+    </script>
+
+    <!-- ✅ Theme Toggle Logic -->
+    <script>
+        const htmlEl = document.documentElement;
+
+        const desktopToggle = document.getElementById('theme-toggle');
+        const desktopIcon = document.getElementById('theme-icon');
+
+        const mobileToggle = document.getElementById('theme-toggle-mobile');
+        const mobileIcon = document.getElementById('theme-icon-mobile');
+
+        function setIcons(isDark) {
+            const iconName = isDark ? 'moon-outline' : 'sunny-outline';
+            if (desktopIcon) desktopIcon.setAttribute('name', iconName);
+            if (mobileIcon) mobileIcon.setAttribute('name', iconName);
+        }
+
+        function applyTheme(theme) {
+            const isDark = theme === 'dark';
+            htmlEl.classList.toggle('dark', isDark);
+            setIcons(isDark);
+        }
+
+        // 1) Load saved theme, else detect system preference
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark' || saved === 'light') {
+            applyTheme(saved);
+        } else {
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyTheme(prefersDark ? 'dark' : 'light');
+        }
+
+        // 2) Toggle handler
+        function toggleTheme() {
+            const isDarkNow = htmlEl.classList.contains('dark');
+            const nextTheme = isDarkNow ? 'light' : 'dark';
+            localStorage.setItem('theme', nextTheme);
+            applyTheme(nextTheme);
+        }
+
+        desktopToggle?.addEventListener('click', toggleTheme);
+        mobileToggle?.addEventListener('click', toggleTheme);
+    </script>
+
+</body>
+
+</html>
+```

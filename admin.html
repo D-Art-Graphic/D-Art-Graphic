@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | D Art Graphic</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            light: '#f8fafc',
+                            accent: '#8b5cf6',
+                            secondary: '#ec4899',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Ionicons for Icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-brand-dark min-h-screen">
+
+    <!-- Sidebar -->
+    <div class="fixed left-0 top-0 h-full w-64 bg-slate-900 border-r border-slate-800 p-6 flex flex-col justify-between z-50 transition-transform duration-300 transform -translate-x-full md:translate-x-0"
+        id="sidebar">
+        <div>
+            <div class="flex items-center gap-3 mb-10">
+                <div
+                    class="h-10 w-10 bg-brand-accent rounded-lg flex items-center justify-center text-white text-xl font-bold">
+                    D</div>
+                <h1 class="text-xl font-bold text-white">Admin Panel</h1>
+            </div>
+
+            <nav class="space-y-4">
+                <button onclick="showSection('dashboard')"
+                    class="w-full flex items-center gap-3 text-gray-300 hover:text-white hover:bg-slate-800 p-3 rounded-lg transition-colors text-left bg-slate-800 text-brand-accent font-semibold"
+                    id="nav-dashboard">
+                    <ion-icon name="grid"></ion-icon> Dashboard
+                </button>
+                <button onclick="showSection('content')"
+                    class="w-full flex items-center gap-3 text-gray-300 hover:text-white hover:bg-slate-800 p-3 rounded-lg transition-colors text-left"
+                    id="nav-content">
+                    <ion-icon name="create"></ion-icon> Edit Content
+                </button>
+                <button onclick="showSection('services')"
+                    class="w-full flex items-center gap-3 text-gray-300 hover:text-white hover:bg-slate-800 p-3 rounded-lg transition-colors text-left"
+                    id="nav-services">
+                    <ion-icon name="briefcase"></ion-icon> Services
+                </button>
+                <button onclick="showSection('messages')"
+                    class="w-full flex items-center gap-3 text-gray-300 hover:text-white hover:bg-slate-800 p-3 rounded-lg transition-colors text-left"
+                    id="nav-messages">
+                    <ion-icon name="mail"></ion-icon> Messages
+                </button>
+                <button onclick="showSection('portfolio')"
+                    class="w-full flex items-center gap-3 text-gray-300 hover:text-white hover:bg-slate-800 p-3 rounded-lg transition-colors text-left"
+                    id="nav-portfolio">
+                    <ion-icon name="images"></ion-icon> Our Work
+                </button>
+                <button onclick="showSection('uploads')"
+                    class="w-full flex items-center gap-3 text-gray-300 hover:text-white hover:bg-slate-800 p-3 rounded-lg transition-colors text-left"
+                    id="nav-uploads">
+                    <ion-icon name="image"></ion-icon> Site Images
+                </button>
+                <button onclick="showSection('settings')"
+                    class="w-full flex items-center gap-3 text-gray-300 hover:text-white hover:bg-slate-800 p-3 rounded-lg transition-colors text-left"
+                    id="nav-settings">
+                    <ion-icon name="settings"></ion-icon> Settings
+                </button>
+            </nav>
+        </div>
+
+        <div class="pt-6 border-t border-slate-800">
+            <button onclick="logout()"
+                class="w-full flex items-center gap-2 text-red-500 hover:text-red-400 font-medium">
+                <ion-icon name="log-out-outline" class="text-xl"></ion-icon> Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="md:ml-64 p-8 transition-all duration-300">
+
+        <!-- Mobile Header -->
+        <div class="flex justify-between md:hidden mb-8 items-center">
+            <h1 class="text-2xl font-bold">Admin Panel</h1>
+            <button onclick="document.getElementById('sidebar').classList.toggle('-translate-x-full')"
+                class="p-2 text-2xl bg-slate-800 rounded-lg">
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </div>
+
+        <!-- Section: Dashboard Overview -->
+        <div id="section-dashboard" class="space-y-8 animate-fade-in section">
+            <header class="mb-8">
+                <h2 class="text-3xl font-bold text-white">Dashboard Overview</h2>
+                <p class="text-gray-400">Welcome admin, here is what's happening today.</p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Stat Card 1 -->
+                <div
+                    class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-brand-accent transition-colors">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <p class="text-gray-400 text-sm font-medium">Total Visits</p>
+                            <h3 class="text-3xl font-bold text-white mt-1">1,234</h3>
+                        </div>
+                        <div class="p-2 bg-brand-accent/20 rounded-lg text-brand-accent">
+                            <ion-icon name="people" class="text-xl"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="flex items-center text-green-400 text-sm">
+                        <ion-icon name="arrow-up" class="mr-1"></ion-icon> <span>12% from last week</span>
+                    </div>
+                </div>
+
+                <!-- Stat Card 2 -->
+                <div
+                    class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-brand-accent transition-colors">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <p class="text-gray-400 text-sm font-medium">New Messages</p>
+                            <h3 class="text-3xl font-bold text-white mt-1">5</h3>
+                        </div>
+                        <div class="p-2 bg-pink-500/20 rounded-lg text-pink-500">
+                            <ion-icon name="mail-unread" class="text-xl"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="flex items-center text-gray-400 text-sm">
+                        <span>Check your inbox</span>
+                    </div>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div
+                    class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-brand-accent transition-colors">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <p class="text-gray-400 text-sm font-medium">Active Services</p>
+                            <h3 class="text-3xl font-bold text-white mt-1" id="serviceCountDisplay">3</h3>
+                        </div>
+                        <div class="p-2 bg-blue-500/20 rounded-lg text-blue-500">
+                            <ion-icon name="briefcase" class="text-xl"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="flex items-center text-gray-400 text-sm">
+                        <a href="#" onclick="showSection('services')" class="hover:text-white">Manage Services
+                            &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <h3 class="text-xl font-bold mb-4">Recent Activity</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-green-500"></div> Login detected (Admin) - Just now
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-blue-500"></div> Content updated - Yesterday
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-yellow-500"></div> Password changed - 2 days ago
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <h3 class="text-xl font-bold mb-4">Quick Actions</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="showSection('content')"
+                            class="p-4 bg-slate-700 hover:bg-slate-600 rounded-xl text-center transition-colors">
+                            <ion-icon name="pencil" class="text-2xl mb-2 text-brand-accent"></ion-icon>
+                            <div class="text-sm font-medium">Edit Home Text</div>
+                        </button>
+                        <button onclick="showSection('services')"
+                            class="p-4 bg-slate-700 hover:bg-slate-600 rounded-xl text-center transition-colors">
+                            <ion-icon name="add-circle" class="text-2xl mb-2 text-green-500"></ion-icon>
+                            <div class="text-sm font-medium">Add Service</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Edit Content (CMS) -->
+        <div id="section-content" class="hidden space-y-8 section animate-fade-in">
+            <header class="mb-8">
+                <h2 class="text-3xl font-bold text-white">Edit Website Content</h2>
+                <p class="text-gray-400">Update text, titles, and basic information.</p>
+            </header>
+
+            <div class="glass-panel p-8 rounded-2xl space-y-6">
+                <!-- Branding -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-brand-accent">Branding & Logo</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Company Name</label>
+                            <input type="text" id="site_title"
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                                placeholder="D Art Graphic">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Logo Text Highlight</label>
+                            <input type="text" id="site_highlight"
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                                placeholder="Graphic">
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-slate-700">
+
+                <!-- Hero Section -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-brand-accent">Home Page: Hero Section</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Main Headline (Line 1)</label>
+                            <input type="text" id="hero_title_1"
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                                placeholder="We Create">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Main Headline (Line 2 -
+                                Gradient)</label>
+                            <input type="text" id="hero_title_2"
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                                placeholder="Digital Masterpieces">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Subtitle / Description</label>
+                            <textarea id="hero_subtitle" rows="3"
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                                placeholder="Transform your vision..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex justify-end">
+                    <button onclick="saveContent()"
+                        class="bg-brand-accent hover:bg-violet-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:-translate-y-1">
+                        Save Changes
+                    </button>
+                    <div id="saveToast" class="hidden ml-4 text-green-500 font-bold self-center">Saved!</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section: Services -->
+        <div id="section-services" class="hidden space-y-8 section animate-fade-in">
+            <header class="mb-8 flex justify-between items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white">Services & Products</h2>
+                    <p class="text-gray-400">Manage the services listed on your site.</p>
+                </div>
+                <button onclick="openServiceModal()"
+                    class="bg-brand-secondary hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full flex items-center gap-2">
+                    <ion-icon name="add"></ion-icon> Add New
+                </button>
+            </header>
+
+            <!-- List of Services -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="servicesList">
+                <!-- Javascript will populate this -->
+                <div class="text-gray-500 col-span-full text-center py-10">Loading services...</div>
+            </div>
+        </div>
+
+        <!-- Section: Messages -->
+        <div id="section-messages" class="hidden space-y-8 section animate-fade-in">
+            <header class="mb-8">
+                <h2 class="text-3xl font-bold text-white">Inbox</h2>
+                <p class="text-gray-400">Read and reply to client inquiries.</p>
+            </header>
+
+            <div class="space-y-4" id="messagesList">
+                <div class="text-center text-gray-500 py-10">Loading messages...</div>
+            </div>
+        </div>
+
+        <!-- Section: Our Work (Portfolio) -->
+        <div id="section-portfolio" class="hidden space-y-8 section animate-fade-in">
+            <header class="mb-8 flex justify-between items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white">Our Work</h2>
+                    <p class="text-gray-400">Manage your portfolio projects.</p>
+                </div>
+                <button onclick="openPortfolioModal()"
+                    class="bg-brand-accent hover:bg-violet-600 text-white px-5 py-2.5 rounded-lg flex items-center gap-2 transition-all shadow-lg shadow-violet-500/20">
+                    <ion-icon name="add-circle"></ion-icon> Add Project
+                </button>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioList">
+                <!-- Javascript will populate this -->
+                <div class="text-gray-500 col-span-full text-center py-10">Loading projects...</div>
+            </div>
+        </div>
+
+        <!-- Section: Uploads (Images) -->
+        <div id="section-uploads" class="hidden space-y-8 section animate-fade-in">
+            <header class="mb-8">
+                <h2 class="text-3xl font-bold text-white">Site Images Manager</h2>
+                <p class="text-gray-400">Update images across the website.</p>
+            </header>
+
+            <div class="glass-panel p-8 rounded-2xl space-y-8">
+                <!-- Logo -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-brand-accent">1. Main Logo</h3>
+                    <div class="flex items-center gap-6">
+                        <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                            <img src="images/logo.svg" id="currentLogoPreview" class="h-12 w-auto object-contain">
+                        </div>
+                        <div class="flex-1">
+                            <label class="block text-xs text-gray-500 mb-1">Upload Logo File:</label>
+                            <input type="file" id="logo_file_input" accept="image/*"
+                                class="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-accent file:text-white hover:file:bg-violet-700 cursor-pointer mb-3">
+
+                            <label
+                                class="block text-xs text-gray-500 mb-1">file:///G:/Logo%20dising/New%20editin/MY%20Logo/Dart%20Graphics.4.svg:</label>
+                            <input type="text" id="logo_path"
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none mb-2"
+                                placeholder="images/logo.svg"
+                                onchange="updateImagePreview('logo_path', 'currentLogoPreview')">
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-slate-700">
+
+                <!-- Dynamic Image Mapper -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-brand-accent">2. Page Images</h3>
+                    <p class="text-sm text-gray-400 mb-4">Select an image spot to update.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Select Image Location</label>
+                            <select id="imageSelector"
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                                onchange="loadSelectedImage()">
+                                <option value="hero-bg">Home - Hero Background (Gradient/Img)</option>
+                                <option value="about-hero">About - Hero Image</option>
+                                <option value="contact-hero">Contact - Hero Image</option>
+                                <option value="home-feature">Home - 3D Abstract Image</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">New Image URL / Path</label>
+                            <input type="text" id="selected_image_path"
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                                placeholder="e.g. images/my-hero.jpg">
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex justify-end">
+                        <button onclick="saveSelectedImage()"
+                            class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg">
+                            Update Image
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Section: Settings -->
+        <div id="section-settings" class="hidden space-y-8 section animate-fade-in">
+            <header class="mb-8">
+                <h2 class="text-3xl font-bold text-white">Admin Settings</h2>
+                <p class="text-gray-400">Manage your account and access.</p>
+            </header>
+
+            <div class="max-w-xl">
+                <div class="glass-panel p-8 rounded-2xl space-y-6">
+                    <h3 class="text-xl font-bold mb-4 text-red-400">Security</h3>
+
+                    <form id="changePasswordForm" class="space-y-4" onsubmit="changePassword(event)">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Current Password</label>
+                            <input type="password" id="current_pwd" required
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">New Password</label>
+                            <input type="password" id="new_pwd" required
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Confirm New Password</label>
+                            <input type="password" id="confirm_pwd" required
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none">
+                        </div>
+
+                        <div id="pwdMsg" class="hidden text-sm font-bold"></div>
+
+                        <button type="submit"
+                            class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-lg mt-4 shadow-lg">
+                            Update Password
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal for Adding/Editing Service -->
+    <div id="serviceModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[100]">
+        <div class="glass-panel bg-slate-900 p-8 rounded-2xl w-full max-w-lg relative border border-slate-600 m-4">
+            <button onclick="closeServiceModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"><ion-icon
+                    name="close"></ion-icon></button>
+            <h2 class="text-2xl font-bold text-white mb-6" id="serviceModalTitle">Add New Service</h2>
+
+            <form id="addServiceForm" onsubmit="handleServiceSubmit(event)" class="space-y-4">
+                <input type="hidden" id="service_id"> <!-- Hidden ID for updates -->
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Service Title</label>
+                    <input type="text" id="new_service_title" required
+                        class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                        placeholder="e.g. 3D Modeling">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Description</label>
+                    <textarea id="new_service_desc" required rows="3"
+                        class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                        placeholder="Brief description..."></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Icon Name (Ionicons)</label>
+                    <input type="text" id="new_service_icon"
+                        class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                        placeholder="Auto-generated if empty">
+                    <p class="text-xs text-gray-500 mt-1">Leave empty to auto-detect icon.</p>
+                </div>
+                <button type="submit"
+                    class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg shadow-lg">
+                    Add Service
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Adding Portfolio Item -->
+    <div id="portfolioModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[100]">
+        <div
+            class="glass-panel bg-slate-900 p-8 rounded-2xl w-full max-w-lg relative border border-slate-600 m-4 overflow-y-auto max-h-[90vh]">
+            <button onclick="closePortfolioModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"><ion-icon
+                    name="close"></ion-icon></button>
+            <h2 class="text-2xl font-bold text-white mb-6" id="portfolioModalTitle">Add Project</h2>
+
+            <form id="portfolioForm" onsubmit="handlePortfolioSubmit(event)" class="space-y-4">
+                <input type="hidden" id="pf_id">
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Project Title</label>
+                    <input type="text" id="pf_title" required
+                        class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                        placeholder="e.g. Neon Cafe">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Category</label>
+                    <select id="pf_category"
+                        class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none">
+                        <option>Branding</option>
+                        <option>Social Media</option>
+                        <option>Web Design</option>
+                        <option>Print Design</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Project Image</label>
+
+                    <!-- File Upload Option -->
+                    <div class="mb-3">
+                        <label class="block text-xs text-gray-500 mb-1">Upload Local File:</label>
+                        <input type="file" id="pf_image_file" accept="image/*"
+                            class="text-sm text-gray-400 w-full file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-accent file:text-white hover:file:bg-violet-700 cursor-pointer">
+                    </div>
+
+                    <div class="text-center text-gray-500 text-xs my-2">- OR -</div>
+
+                    <!-- URL Option -->
+                    <label class="block text-xs text-gray-500 mb-1">Image URL:</label>
+                    <input type="url" id="pf_image"
+                        class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                        placeholder="https://...">
+                </div>
+                <button type="submit"
+                    class="w-full bg-brand-accent hover:bg-violet-600 text-white font-bold py-3 rounded-lg shadow-lg">
+                    Save Project
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Reply Modal -->
+    <div id="replyModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[100]">
+        <div class="glass-panel bg-slate-900 p-8 rounded-2xl w-full max-w-lg relative border border-slate-600 m-4">
+            <button onclick="closeReplyModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"><ion-icon
+                    name="close"></ion-icon></button>
+            <h2 class="text-2xl font-bold text-white mb-2">Reply to Message</h2>
+            <p class="text-sm text-gray-400 mb-6" id="replyToIndicator">To: User</p>
+
+            <form onsubmit="handleReplySubmit(event)" class="space-y-4">
+                <input type="hidden" id="replyMsgId">
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Your Reply</label>
+                    <textarea id="replyText" required rows="5"
+                        class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg px-4 py-3 focus:border-brand-accent outline-none"
+                        placeholder="Type your response..."></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full bg-brand-accent hover:bg-violet-600 text-white font-bold py-3 rounded-lg shadow-lg">
+                    Send Reply
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Auth Check Script -->
+    <script src="js/admin-core.js"></script>
+    <script>
+        // Simple router
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(el => el.classList.add('hidden'));
+            document.getElementById('section-' + id).classList.remove('hidden');
+
+            // Update active nav
+            document.querySelectorAll('nav button').forEach(el => {
+                el.classList.remove('bg-slate-800', 'text-brand-accent', 'font-semibold');
+                el.classList.add('text-gray-300');
+            });
+            document.getElementById('nav-' + id).classList.add('bg-slate-800', 'text-brand-accent', 'font-semibold');
+            document.getElementById('nav-' + id).classList.remove('text-gray-300');
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            loadContentToFields();
+            renderServices();
+        });
+    </script>
+</body>
+
+</html>

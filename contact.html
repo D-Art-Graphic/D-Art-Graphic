@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | D Art Graphic</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            light: '#f8fafc',
+                            accent: '#8b5cf6', // Violet
+                            secondary: '#ec4899', // Pink
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body class="bg-brand-dark text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <!-- LOGO OPTION: Paste your logo image in 'images/' folder and update src below -->
+                        <img src="images/logo.svg" alt="Logo" class="h-10 w-auto object-contain">
+
+                        <!-- TEXT OPTION: You can remove this span if you only want the image logo -->
+                        <span
+                            class="text-2xl font-bold tracking-tighter text-white group-hover:text-brand-accent transition-colors">
+                            D Art <span class="text-brand-accent">Graphic</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="portfolio.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Our
+                            Work</a>
+                        <a href="services.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="about.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="contact.html"
+                            class="bg-brand-accent hover:bg-violet-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-lg shadow-violet-500/30">Contact
+                            Us</a>
+                        <a href="profile.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                            title="My Profile"><ion-icon name="person-circle" class="text-2xl"></ion-icon></a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
+                        aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-btn">
+                        <span class="sr-only">Open main menu</span>
+                        <ion-icon name="menu-outline" class="text-3xl"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden bg-gray-900 absolute w-full border-b border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="portfolio.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Our Work</a>
+                <a href="services.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="about.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="contact.html"
+                    class="text-brand-accent block px-3 py-2 rounded-md text-base font-medium font-bold">Contact Us</a>
+                <a href="profile.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium border-t border-gray-800 mt-2 pt-2">My
+                    Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section for Contact -->
+    <div class="relative min-h-[50vh] flex items-center justify-center bg-slate-900 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-accent/20 to-transparent mix-blend-overlay"></div>
+        <div
+            class="absolute top-20 right-20 w-80 h-80 bg-pink-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-float-slow">
+        </div>
+        <div class="absolute bottom-10 left-10 w-60 h-60 bg-blue-600 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-float-slow"
+            style="animation-delay: 2s;"></div>
+
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight fade-in-up">Get In Touch</h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto fade-in-up">Have a project in mind? Let's discuss how we
+                can help you grow.</p>
+        </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <section class="py-20 bg-brand-dark -mt-20 relative z-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-slate-800/50 backdrop-blur-lg p-8 md:p-12 rounded-3xl shadow-2xl border border-slate-700">
+
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <h3 class="text-3xl font-bold text-white mb-6">Contact Information</h3>
+                    <p class="text-gray-400 mb-8">Fill up the form and our team will get back to you within 24 hours.
+                    </p>
+
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="w-12 h-12 bg-slate-700/50 rounded-full flex items-center justify-center text-brand-accent text-xl shrink-0">
+                            <ion-icon name="call"></ion-icon>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Phone</h4>
+                            <p class="text-gray-400 mt-1">+94 75 54 73912</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="w-12 h-12 bg-slate-700/50 rounded-full flex items-center justify-center text-brand-accent text-xl shrink-0">
+                            <ion-icon name="mail"></ion-icon>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Email</h4>
+                            <p class="text-gray-400 mt-1">hello@dartgraphic.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="w-12 h-12 bg-slate-700/50 rounded-full flex items-center justify-center text-brand-accent text-xl shrink-0">
+                            <ion-icon name="location"></ion-icon>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Address</h4>
+                            <p class="text-gray-400 mt-1">Colombo Road, Pothuhera Sri Lanka</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-8">
+                        <h4 class="text-lg font-bold text-white mb-4">Follow Us</h4>
+                        <div class="flex gap-4">
+                            <a href="https://web.facebook.com/profile.php?id=100094623741153"
+                                class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white hover:bg-brand-accent transition-all hover:-translate-y-1"><ion-icon
+                                    name="logo-facebook"></ion-icon></a>
+                            <a href="#"
+                                class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white hover:bg-brand-accent transition-all hover:-translate-y-1"><ion-icon
+                                    name="logo-instagram"></ion-icon></a>
+                            <a href="#"
+                                class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white hover:bg-brand-accent transition-all hover:-translate-y-1"><ion-icon
+                                    name="logo-twitter"></ion-icon></a>
+                            <a href="#"
+                                class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white hover:bg-brand-accent transition-all hover:-translate-y-1"><ion-icon
+                                    name="logo-whatsapp"></ion-icon></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
+                            <input type="text" id="contactName" required
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-brand-accent transition-colors"
+                                placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Your Email</label>
+                            <input type="email" id="contactEmail" required
+                                class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-brand-accent transition-colors"
+                                placeholder="john@example.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-400 mb-2">Subject</label>
+                        <select id="contactSubject"
+                            class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-brand-accent transition-colors">
+                            <option>General Inquiry</option>
+                            <option>Project Quote</option>
+                            <option>Support</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                        <textarea id="contactMessage" required rows="5"
+                            class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-brand-accent transition-colors"
+                            placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-brand-accent hover:bg-violet-700 text-white font-bold py-4 rounded-lg shadow-lg shadow-violet-500/30 transition-all transform hover:-translate-y-1">Send
+                        Message</button>
+                    <p id="formStatus" class="text-green-500 text-center mt-2 hidden">Message Sent Successfully!</p>
+                </form>
+
+                <script>
+                    document.getElementById('contactForm').addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        const name = document.getElementById('contactName').value;
+                        const email = document.getElementById('contactEmail').value.toLowerCase(); // consistent casing
+                        const subject = document.getElementById('contactSubject').value;
+                        const message = document.getElementById('contactMessage').value;
+
+                        const newMsg = {
+                            id: Date.now(),
+                            name,
+                            email,
+                            subject,
+                            message,
+                            date: new Date().toLocaleDateString(),
+                            read: false,
+                            reply: null // Admin reply will be stored here
+                        };
+
+                        let messages = JSON.parse(localStorage.getItem('dart_messages')) || [];
+                        messages.push(newMsg);
+                        localStorage.setItem('dart_messages', JSON.stringify(messages));
+
+                        // Feedback
+                        const status = document.getElementById('formStatus');
+                        status.classList.remove('hidden');
+                        e.target.reset();
+                        setTimeout(() => status.classList.add('hidden'), 3000);
+                    });
+                </script>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-12 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600 text-sm">
+            &copy; 2026 D Art Graphic. All rights reserved.
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | D Art Graphic</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            light: '#f8fafc',
+                            accent: '#8b5cf6', // Violet
+                            secondary: '#ec4899', // Pink
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body class="bg-brand-dark text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <!-- LOGO OPTION: Paste your logo image in 'images/' folder and update src below -->
+                        <img src="images/logo.svg" alt="Logo" class="h-10 w-auto object-contain">
+
+                        <!-- TEXT OPTION: You can remove this span if you only want the image logo -->
+                        <span
+                            class="text-2xl font-bold tracking-tighter text-white group-hover:text-brand-accent transition-colors">
+                            D Art <span class="text-brand-accent">Graphic</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="portfolio.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Our
+                            Work</a>
+                        <a href="services.html"
+                            class="text-white hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-brand-accent">Services</a>
+                        <a href="about.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="contact.html"
+                            class="bg-brand-accent hover:bg-violet-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-lg shadow-violet-500/30">Contact
+                            Us</a>
+                        <a href="profile.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                            title="My Profile"><ion-icon name="person-circle" class="text-2xl"></ion-icon></a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
+                        aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-btn">
+                        <span class="sr-only">Open main menu</span>
+                        <ion-icon name="menu-outline" class="text-3xl"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden bg-gray-900 absolute w-full border-b border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="portfolio.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Our Work</a>
+                <a href="services.html"
+                    class="text-white hover:text-brand-accent block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="about.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="contact.html"
+                    class="text-brand-accent block px-3 py-2 rounded-md text-base font-medium font-bold">Contact Us</a>
+                <a href="profile.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium border-t border-gray-800 mt-2 pt-2">My
+                    Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-slate-900 py-32 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-accent/5 to-transparent"></div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 relative z-10 fade-in-up">What We Offer</h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto relative z-10 fade-in-up">Professional design solutions
+            tailored for your business needs.</p>
+    </header>
+
+    <!-- Services List -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="services-grid">
+            <!-- Service Visual (Static Fallback / Dynamic Target) -->
+            <div class="space-y-8 fade-in-up">
+                <div class="flex gap-6">
+                    <div
+                        class="flex-shrink-0 w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center text-3xl text-brand-accent border border-slate-700">
+                        <ion-icon name="brush"></ion-icon>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Graphic Design</h3>
+                        <p class="text-gray-400">Flyers, brochures, business cards, and banners. We create print-ready
+                            designs that look amazing on paper and screen.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div
+                        class="flex-shrink-0 w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center text-3xl text-pink-500 border border-slate-700">
+                        <ion-icon name="movie-reel"></ion-icon>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Video</Video></h3>
+                        <p class="text-gray-400">Nice video editing and animation </p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div
+                        class="flex-shrink-0 w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center text-3xl text-blue-500 border border-slate-700">
+                        <ion-icon name="globe"></ion-icon>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Web & UI Design</h3>
+                        <p class="text-gray-400">Designing user interfaces for websites and mobile apps. We focus on
+                            usability, aesthetics, and user experience.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Cards (Example) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-in-up">
+                <!-- Card 1 -->
+                <div
+                    class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 relative overflow-hidden group hover:border-brand-accent transition-colors">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <ion-icon name="rocket" class="text-9xl"></ion-icon>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-300 mb-2">Starter Pack</h4>
+                    <div class="text-3xl font-bold text-white mb-6">$99</div>
+                    <ul class="space-y-3 text-gray-400 mb-8">
+                        <li class="flex items-center gap-2"><ion-icon name="checkmark"
+                                class="text-brand-accent"></ion-icon> 2 Logo Concepts</li>
+                        <li class="flex items-center gap-2"><ion-icon name="checkmark"
+                                class="text-brand-accent"></ion-icon> Business Card Design</li>
+                        <li class="flex items-center gap-2"><ion-icon name="checkmark"
+                                class="text-brand-accent"></ion-icon> Social Media Cover</li>
+                        <li class="flex items-center gap-2"><ion-icon name="checkmark"
+                                class="text-brand-accent"></ion-icon> 3 Revisions</li>
+                    </ul>
+                    <a href="contact.html"
+                        class="block text-center border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white py-3 rounded-full font-bold transition-all">Choose
+                        Plan</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-gradient-to-b from-slate-800 to-slate-900 p-8 rounded-3xl border border-brand-accent relative overflow-hidden shadow-2xl shadow-brand-accent/20 transform md:-translate-y-4">
+                    <div
+                        class="absolute top-0 right-0 bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                        POPULAR</div>
+                    <h4 class="text-xl font-bold text-white mb-2">Pro Business</h4>
+                    <div class="text-3xl font-bold text-white mb-6">$249</div>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-center gap-2"><ion-icon name="checkmark"
+                                class="text-brand-accent"></ion-icon> 5 Logo Concepts</li>
+                        <li class="flex items-center gap-2"><ion-icon name="checkmark"
+                                class="text-brand-accent"></ion-icon> Full Stationery Kit</li>
+                        <li class="flex items-center gap-2"><ion-icon name="checkmark"
+                                class="text-brand-accent"></ion-icon> Social Media Kit (5 Posts)</li>
+                        <li class="flex items-center gap-2"><ion-icon name="checkmark"
+                                class="text-brand-accent"></ion-icon> Unlimited Revisions</li>
+                        <li class="flex items-center gap-2"><ion-icon name="checkmark"
+                                class="text-brand-accent"></ion-icon> Source Files</li>
+                    </ul>
+                    <a href="contact.html"
+                        class="block text-center bg-brand-accent text-white hover:bg-violet-600 py-3 rounded-full font-bold transition-all shadow-lg shadow-violet-500/30">Choose
+                        Plan</a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="bg-black py-12 border-t border-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="col-span-1 md:col-span-2">
+                        <a href="#" class="text-2xl font-bold text-white tracking-tighter mb-4 block">
+                            D Art <span class="text-brand-accent">Graphic</span>
+                        </a>
+                        <p class="text-gray-500 max-w-sm">Premium graphic design services for brands that want to stand
+                            out. Quality, creativity, and speed.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="index.html" class="hover:text-brand-accent transition-colors">Home</a></li>
+                            <li><a href="portfolio.html" class="hover:text-brand-accent transition-colors">Our Work</a>
+                            </li>
+                            <li><a href="services.html" class="hover:text-brand-accent transition-colors">Services</a>
+                            </li>
+                            <li><a href="about.html" class="hover:text-brand-accent transition-colors">About</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Contact</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li class="flex items-center gap-2"><ion-icon name="mail"></ion-icon> hello@dartgraphic.com
+                            </li>
+                            <li class="flex items-center gap-2"><ion-icon name="call"></ion-icon> +94 75 54 73912</li>
+                            <li class="flex items-center gap-2"><ion-icon name="location"></ion-icon> Pothuhera, Sri
+                                Lanka</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                    &copy; 2026 D Art Graphic. All rights reserved.
+                </div>
+            </div>
+        </footer>
+        <script src="script.js"></script>
+        <script src="js/cms.js"></script>
+</body>
+
+</html>

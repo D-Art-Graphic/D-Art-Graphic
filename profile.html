@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | D Art Graphic</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            light: '#f8fafc',
+                            accent: '#8b5cf6',
+                            secondary: '#ec4899',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-dark min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-900 border-b border-slate-800 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <span class="text-2xl font-bold tracking-tighter">
+                        D Art <span class="text-brand-accent">Graphic</span>
+                    </span>
+                </a>
+                <div class="flex items-center gap-4">
+                    <span class="text-gray-400 text-sm hidden sm:block">Welcome, <span
+                            id="navUserName">User</span></span>
+                    <a href="portfolio.html"
+                        class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Our
+                        Work</a>
+                    <button onclick="logoutUser()"
+                        class="text-sm bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg text-white font-medium border border-slate-700 transition-colors">Logout</button>
+                    <!-- Small Avatar -->
+                    <div id="navAvatar"
+                        class="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center overflow-hidden border border-slate-600">
+                        <span class="text-lg font-bold">?</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-white mb-8">Account Dashboard</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Profile Overview Card -->
+            <div class="md:col-span-1">
+                <div class="bg-slate-800 rounded-2xl border border-slate-700 p-8 text-center sticky top-32">
+                    <div
+                        class="w-32 h-32 mx-auto rounded-full bg-slate-700 overflow-hidden border-4 border-brand-accent mb-6 relative group">
+                        <!-- Profile Image Display -->
+                        <img id="displayAvatar" src="" class="w-full h-full object-cover hidden">
+                        <div id="avatarFallback"
+                            class="w-full h-full flex items-center justify-center text-4xl text-gray-500 bg-slate-700">
+                            <ion-icon name="person"></ion-icon>
+                        </div>
+                    </div>
+
+                    <h2 id="displayName" class="text-2xl font-bold text-white mb-1">Loading...</h2>
+                    <p id="displayEmail" class="text-gray-400 text-sm mb-6">user@example.com</p>
+
+                    <div class="w-full h-px bg-slate-700 my-6"></div>
+
+                    <button onclick="enableEditMode()"
+                        class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                        <ion-icon name="create-outline"></ion-icon> Edit Profile
+                    </button>
+                </div>
+            </div>
+
+            <!-- Details / Edit Form -->
+            <div class="md:col-span-2 space-y-8">
+
+                <!-- View Mode -->
+                <div id="viewMode" class="bg-slate-800 rounded-2xl border border-slate-700 p-8 space-y-6">
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-slate-700 pb-2">Your Information</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-500 font-bold mb-1">Phone
+                                Number</label>
+                            <p id="viewPhone" class="text-lg text-white font-medium">-</p>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs uppercase tracking-wider text-gray-500 font-bold mb-1">Address</label>
+                            <p id="viewAddress" class="text-lg text-white font-medium">-</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-500 font-bold mb-1">Member
+                                Since</label>
+                            <p id="viewJoined" class="text-lg text-white font-medium">-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Mode (Hidden by default) -->
+                <div id="editMode"
+                    class="hidden bg-slate-800 rounded-2xl border border-brand-accent p-8 space-y-6 relative">
+                    <button onclick="cancelEdit()"
+                        class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">
+                        <ion-icon name="close"></ion-icon>
+                    </button>
+
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-slate-700 pb-2">Edit Profile</h3>
+
+                    <form id="editForm" onsubmit="saveProfileChanges(event)" class="space-y-4">
+                        <!-- New Image Upload -->
+                        <div class="flex items-center gap-4 py-4">
+                            <div
+                                class="w-16 h-16 rounded-full bg-slate-700 overflow-hidden border border-brand-accent flex-shrink-0">
+                                <img id="editAvatarPreview" src="" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <label class="block text-sm font-medium text-gray-400 mb-1">Change photo</label>
+                                <input type="file" id="editAvatarInput" accept="image/*"
+                                    class="text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-accent file:text-white hover:file:bg-violet-700">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">Full Name</label>
+                                <input type="text" id="editName"
+                                    class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-accent">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">Email</label>
+                                <input type="email" id="editEmail" readonly
+                                    class="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-gray-500 cursor-not-allowed"
+                                    title="Email cannot be changed">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">Phone Number</label>
+                                <input type="tel" id="editPhone"
+                                    class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-accent"
+                                    placeholder="Add phone number">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm text-gray-400 mb-1">Address</label>
+                                <textarea id="editAddress" rows="2"
+                                    class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-accent"
+                                    placeholder="Add address"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex justify-end gap-3">
+                            <button type="button" onclick="cancelEdit()"
+                                class="px-6 py-3 bg-slate-700 hover:bg-slate-600 rounded-lg text-white font-medium">Cancel</button>
+                            <button type="submit"
+                                class="px-6 py-3 bg-brand-accent hover:bg-violet-700 rounded-lg text-white font-bold shadow-lg">Save
+                                Changes</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Messages Section -->
+                <div class="bg-slate-800 rounded-2xl border border-slate-700 p-8">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <ion-icon name="mail-unread"></ion-icon> Inbox
+                    </h3>
+                    <div id="userMessagesList" class="space-y-4">
+                        <p class="text-gray-400 text-sm">No new messages.</p>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Placeholder -->
+                <div class="bg-slate-800 rounded-2xl border border-slate-700 p-8">
+                    <h3 class="text-xl font-bold text-white mb-4">Recent Projects</h3>
+                    <p class="text-gray-400 text-center py-8">No active projects linked to this account yet.</p>
+                    <div class="text-center">
+                        <a href="contact.html"
+                            class="inline-block text-brand-accent hover:text-white border border-brand-accent hover:bg-brand-accent px-6 py-2 rounded-full text-sm font-bold transition-all">Start
+                            a Project</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/user-core.js"></script>
+    <script>
+        // Init profile load
+        window.addEventListener('DOMContentLoaded', loadUserProfile);
+
+        // Edit Image Preview Logic
+        document.getElementById('editAvatarInput').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('editAvatarPreview').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+
+</html>
