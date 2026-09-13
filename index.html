@@ -1,496 +1,984 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D Art Graphic | Premium Design Services</title>
+    <title>D Art Graphic | Transforming Ideas Into Stunning Visual Experiences</title>
+    <meta name="description" content="Professional Graphic Design, Branding, Social Media Design, Print Design and Video Editing Solutions. D Art Graphic is a premium creative agency helping businesses grow.">
+    <meta name="keywords" content="Graphic Design, Branding, Social Media Design, Print Design, Video Editing, Creative Agency, D Art Graphic, Sri Lanka">
+    <meta name="author" content="D Art Graphic">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="D Art Graphic | Premium Creative Agency">
+    <meta property="og:description" content="Transforming Ideas Into Stunning Visual Experiences. Professional Graphic Design, Branding, Social Media, Print, and Video Editing.">
+    <meta property="og:image" content="assets/hero_render.png">
 
-    <!-- Tailwind CSS (via CDN for no-node requirement) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class', // ✅ enable class-based dark mode
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#0f172a',
-                            light: '#f8fafc',
-                            accent: '#8b5cf6', // Violet
-                            secondary: '#ec4899', // Pink
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'spin-slow': 'spin 12s linear infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- CSS CDNs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Ionicons for Icons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* ✅ Light mode default navbar glass */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.72);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        }
-
-        /* ✅ Dark mode navbar glass */
-        html.dark .glass-nav {
-            background: rgba(15, 23, 42, 0.80);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-        }
-
-        .text-gradient {
-            background: linear-gradient(to right, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* ✅ Light mode hero background */
-        .hero-bg {
-            background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.18), #ffffff 45%);
-        }
-
-        /* ✅ Dark mode hero background */
-        html.dark .hero-bg {
-            background: radial-gradient(circle at top right, #1e1b4b, #0f172a 40%);
-        }
-    </style>
 </head>
+<body>
 
-<body
-    class="bg-white text-gray-900 dark:bg-brand-dark dark:text-white overflow-x-hidden transition-colors duration-300 selection:bg-brand-accent selection:text-white">
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center">
-                    <a href="index.html" class="flex items-center gap-3 group">
-                        <!-- LOGO OPTION: Paste your logo image in 'images/' folder and update src below -->
-                        <img src="images/logo.svg" alt="Logo" class="h-10 w-auto object-contain logo-img">
+    <!-- Background Elements -->
+    <div class="glow-bg-elements">
+        <div class="glow-sphere glow-sphere-1"></div>
+        <div class="glow-sphere glow-sphere-2"></div>
+        <div class="glow-sphere glow-sphere-3"></div>
+    </div>
 
-                        <!-- TEXT OPTION: You can remove this span if you only want the image logo -->
-                        <span
-                            class="text-2xl font-bold tracking-tighter group-hover:text-brand-accent transition-colors">
-                            <span class="site-title">D Art</span> <span
-                                class="text-brand-accent site-highlight">Graphic</span>
-                        </span>
-                    </a>
-                </div>
+    <!-- Header / Navbar -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#home" class="logo nav-action" id="header-logo">
+                <img src="assets/Dart Graphics Logo.png" alt="Dart Graphics Logo" class="logo-img">
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#home" class="nav-link active nav-action">Home</a></li>
+                    <li><a href="#about" class="nav-link nav-action">About</a></li>
+                    <li><a href="#services" class="nav-link nav-action">Services</a></li>
+                    <li><a href="#portfolio" class="nav-link nav-action">Portfolio</a></li>
+                    <!-- <li><a href="#testimonials" class="nav-link nav-action">Testimonials</a></li> -->
+                    <li><a href="#faq" class="nav-link nav-action">FAQ</a></li>
+                    <li><a href="#contact" class="nav-link nav-action">Contact</a></li>
+                </ul>
+            </nav>
 
-                <!-- Desktop menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html"
-                            class="text-gray-900 dark:text-white hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
-                        <a href="portfolio.html"
-                            class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Our
-                            Work</a>
-                        <a href="services.html"
-                            class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
-                        <a href="about.html"
-                            class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
-                        <a href="contact.html"
-                            class="bg-brand-accent hover:bg-violet-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-lg shadow-violet-500/30">Contact
-                            Us</a>
+            <div class="header-actions">
+                <a href="#contact" class="btn btn-nav nav-action">Get In Touch</a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
 
-                        <!-- ✅ Theme Toggle Button (Desktop) -->
-                        <button id="theme-toggle"
-                            class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md transition-colors"
-                            title="Toggle theme" type="button">
-                            <ion-icon id="theme-icon" name="moon-outline" class="text-2xl"></ion-icon>
-                        </button>
+    <div class="accessibility-panel" id="accessibility-panel" aria-hidden="true">
+        <button type="button" class="accessibility-panel-close" id="accessibility-close" aria-label="Close accessibility settings">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="accessibility-panel-inner">
+            <div class="accessibility-panel-header">
+                <h2>Accessibility Settings</h2>
+                <p>WCAG 2.1 AA experience settings with quick toggles.</p>
+            </div>
 
-                        <a href="profile.html"
-                            class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                            title="My Profile"><ion-icon name="person-circle" class="text-2xl"></ion-icon></a>
-                    </div>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="-mr-2 flex md:hidden items-center gap-2">
-                    <!-- ✅ Theme Toggle Button (Mobile - icon only) -->
-                    <button id="theme-toggle-mobile"
-                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 focus:outline-none"
-                        title="Toggle theme" type="button">
-                        <ion-icon id="theme-icon-mobile" name="moon-outline" class="text-2xl"></ion-icon>
+            <div class="accessibility-group">
+                <h3>Text & Typography</h3>
+                <div class="accessibility-options">
+                    <button type="button" class="accessibility-option" data-group="text" data-value="small">
+                        <i class="fa-solid fa-text-height"></i>
+                        <span>Small</span>
                     </button>
-
-                    <button type="button"
-                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 focus:outline-none"
-                        aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-btn">
-                        <span class="sr-only">Open main menu</span>
-                        <ion-icon name="menu-outline" class="text-3xl"></ion-icon>
+                    <button type="button" class="accessibility-option active" data-group="text" data-value="default">
+                        <i class="fa-solid fa-circle"></i>
+                        <span>Default</span>
+                    </button>
+                    <button type="button" class="accessibility-option" data-group="text" data-value="large">
+                        <i class="fa-solid fa-text-size"></i>
+                        <span>Large</span>
                     </button>
                 </div>
             </div>
-        </div>
 
-        <!-- Mobile menu, show/hide based on menu state. -->
-        <div class="md:hidden hidden bg-white dark:bg-gray-900 absolute w-full border-b border-gray-200 dark:border-gray-800"
-            id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="index.html"
-                    class="text-gray-900 dark:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
-                <a href="portfolio.html"
-                    class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium">Our
-                    Work</a>
-                <a href="services.html"
-                    class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
-                <a href="about.html"
-                    class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
-                <a href="contact.html"
-                    class="text-brand-accent block px-3 py-2 rounded-md text-base font-medium font-bold">Contact Us</a>
-                <a href="profile.html"
-                    class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium border-t border-gray-200 dark:border-gray-800 mt-2 pt-2">My
-                    Profile</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="hero-bg min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
-        <!-- Floating shapes background -->
-        <div
-            class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float">
-        </div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"
-            style="animation-delay: 2s;"></div>
-
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="text-center md:text-left">
-                <span
-                    class="inline-block py-1 px-3 rounded-full bg-white/70 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-brand-accent text-sm font-semibold mb-6">
-                    ✨ Elevate Your Brand Identity
-                </span>
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
-                    <span id="hero-title-1">We Create</span> <br>
-                    <span class="text-gradient" id="hero-title-2">Digital Masterpieces</span>
-                </h1>
-                <p class="mt-4 text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto md:mx-0"
-                    id="hero-subtitle">
-                    Transform your vision into stunning visuals. Professional graphic design services tailored for
-                    modern businesses.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="portfolio.html"
-                        class="bg-gray-900 dark:bg-white text-white dark:text-brand-dark hover:bg-gray-800 dark:hover:bg-gray-200 font-bold py-4 px-8 rounded-full transition-all transform hover:scale-105 shadow-xl">
-                        View Our Work
-                    </a>
-                    <a href="contact.html"
-                        class="border border-gray-400 dark:border-gray-600 hover:border-gray-900 dark:hover:border-white text-gray-900 dark:text-white font-bold py-4 px-8 rounded-full transition-all hover:bg-black/5 dark:hover:bg-white/10">
-                        Get a Quote
-                    </a>
-                </div>
-
-                <div class="mt-12 flex items-center justify-center md:justify-start gap-8 text-gray-500 dark:text-gray-500">
-                    <div class="flex items-center gap-2">
-                        <ion-icon name="checkmark-circle" class="text-brand-accent text-xl"></ion-icon>
-                        <span class="text-sm">Premium Quality</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <ion-icon name="checkmark-circle" class="text-brand-accent text-xl"></ion-icon>
-                        <span class="text-sm">Fast Delivery</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <ion-icon name="checkmark-circle" class="text-brand-accent text-xl"></ion-icon>
-                        <span class="text-sm">Unlimited Revisions</span>
-                    </div>
+            <div class="accessibility-group">
+                <h3>Color & Contrast</h3>
+                <div class="accessibility-options">
+                    <button type="button" class="accessibility-option" data-group="contrast" data-value="high">
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                        <span>High Contrast</span>
+                    </button>
+                    <button type="button" class="accessibility-option" data-group="contrast" data-value="negative">
+                        <i class="fa-solid fa-contrast"></i>
+                        <span>Negative Contrast</span>
+                    </button>
+                    <button type="button" class="accessibility-option" data-group="contrast" data-value="grayscale">
+                        <i class="fa-solid fa-ban"></i>
+                        <span>Grayscale Mode</span>
+                    </button>
                 </div>
             </div>
 
-            <div class="relative hidden md:block group">
-                <!-- Decorative Image Container -->
-                <div class="relative w-full aspect-square max-w-md mx-auto">
-                    <!-- Glass card effect -->
-                    <div
-                        class="absolute inset-0 bg-gradient-to-tr from-brand-accent/20 to-transparent rounded-3xl transform rotate-6 border border-black/10 dark:border-white/10 backdrop-blur-sm">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-white/70 dark:bg-slate-800 rounded-3xl transform -rotate-3 overflow-hidden shadow-2xl border border-gray-200 dark:border-slate-700 group-hover:rotate-0 transition-transform duration-500 ease-out">
-                        <img src="https://images.unsplash.com/photo-1626785774573-4b79931ad95b?q=80&w=2071&auto=format&fit=crop"
-                            alt="Abstract 3D Art"
-                            class="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
-                        <!-- Overlay Text -->
-                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                            <p class="text-white font-bold text-lg">Modern Aesthetics</p>
-                            <p class="text-gray-300 text-sm">Design that speaks volumes</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Floating elements -->
-                <div class="absolute -top-10 -right-10 bg-white/80 dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-gray-200 dark:border-slate-700 animate-float"
-                    style="animation-delay: 1s;">
-                    <ion-icon name="color-palette" class="text-4xl text-pink-500"></ion-icon>
-                </div>
-                <div class="absolute -bottom-5 -left-5 bg-white/80 dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-gray-200 dark:border-slate-700 animate-float"
-                    style="animation-delay: 2.5s;">
-                    <ion-icon name="shapes" class="text-4xl text-brand-accent"></ion-icon>
+            <div class="accessibility-group">
+                <h3>Content Highlighting</h3>
+                <div class="accessibility-options">
+                    <button type="button" class="accessibility-option" data-group="highlight" data-value="focus">
+                        <i class="fa-solid fa-keyboard"></i>
+                        <span>Enhanced Focus</span>
+                    </button>
+                    <button type="button" class="accessibility-option" data-group="highlight" data-value="link">
+                        <i class="fa-solid fa-link"></i>
+                        <span>Link Visibility</span>
+                    </button>
                 </div>
             </div>
+
+            <div class="accessibility-group">
+                <h3>Visual & Motion</h3>
+                <div class="accessibility-options">
+                    <button type="button" class="accessibility-option" data-group="motion" data-value="reduce">
+                        <i class="fa-solid fa-wave-square"></i>
+                        <span>Reduce Motion</span>
+                    </button>
+                    <button type="button" class="accessibility-option" data-group="motion" data-value="calm">
+                        <i class="fa-solid fa-leaf"></i>
+                        <span>Calm Visual Mode</span>
+                    </button>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-secondary accessibility-reset" id="accessibility-reset">
+                <i class="fa-solid fa-rotate-right"></i>
+                Reset Accessibility Settings
+            </button>
         </div>
     </div>
 
-    <!-- Services Preview -->
-    <section class="py-20 bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Our Expertise</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-brand-accent to-brand-secondary mx-auto rounded-full"></div>
-                <p class="mt-4 text-gray-600 dark:text-gray-400">Everything you need to build a powerful brand</p>
-            </div>
+    <button type="button" class="accessibility-toggle" id="accessibility-toggle" aria-label="Open accessibility settings">
+        <i class="fa-solid fa-universal-access"></i>
+    </button>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div
-                    class="p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 hover:border-brand-accent transition-all duration-300 group hover:-translate-y-2 shadow-sm">
-                    <div
-                        class="w-14 h-14 bg-gray-100 dark:bg-slate-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-accent transition-colors">
-                        <ion-icon name="pencil" class="text-2xl text-gray-900 dark:text-white group-hover:text-white"></ion-icon>
+    <main class="page-wrapper">
+        
+        <!-- Hero Section -->
+        <section id="home" class="hero-section page-section active">
+            <video class="hero-bg-video" autoplay muted playsinline>
+                <source src="assets/Bg Video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="badge" data-aos="fade-up">
+                        <span class="badge-dot"></span> Creative Design Agency
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">Logo Design</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Unique, memorable logos that define your brand identity and leave a lasting
-                        impression.</p>
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                        Transform Creative Ideas Into <span class="gradient-text">Powerful Visual Brands</span>
+                    </h1>
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                        Professional Graphic Design, Branding, Social Media Design, Print Design, and Video Editing Solutions. We design experiences that inspire.
+                    </p>
+                    <div class="hero-actions-btn" data-aos="fade-up" data-aos-delay="300">
+                        <a href="#portfolio" class="btn btn-primary nav-action">
+                            <span>View Portfolio</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary nav-action">
+                            <span>Get In Touch</span>
+                        </a>
+                    </div>
                 </div>
-
-                <!-- Service 2 -->
-                <div
-                    class="p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 hover:border-brand-accent transition-all duration-300 group hover:-translate-y-2 shadow-sm">
-                    <div
-                        class="w-14 h-14 bg-gray-100 dark:bg-slate-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-accent transition-colors">
-                        <ion-icon name="globe" class="text-2xl text-gray-900 dark:text-white group-hover:text-white"></ion-icon>
+                
+                <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
+                    <div class="hero-image-wrapper">
+                        <div class="glow-overlay"></div>
+                        <img src="assets/hero_render.png" alt="D Art Graphic Creative Render" class="hero-img floating-element">
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">Social Media</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Eye-catching posts, stories, and banners designed to boost engagement and
-                        followers.</p>
-                </div>
-
-                <!-- Service 3 -->
-                <div
-                    class="p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 hover:border-brand-accent transition-all duration-300 group hover:-translate-y-2 shadow-sm">
-                    <div
-                        class="w-14 h-14 bg-gray-100 dark:bg-slate-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-accent transition-colors">
-                        <ion-icon name="laptop" class="text-2xl text-gray-900 dark:text-white group-hover:text-white"></ion-icon>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">Web UI/UX</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Beautiful, user-friendly website interfaces that convert visitors into
-                        customers.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Project Gallery (Horizontal Scroll) -->
-    <section class="py-20 bg-white dark:bg-brand-dark overflow-hidden transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-            <div class="flex justify-between items-end">
-                <div>
-                    <h2 class="text-3xl md:text-5xl font-bold mb-2">Featured Work</h2>
-                    <p class="text-gray-600 dark:text-gray-400">Some of our best creations</p>
-                </div>
-                <a href="portfolio.html"
-                    class="hidden md:flex items-center text-brand-accent font-semibold hover:text-gray-900 dark:hover:text-white transition-colors">
-                    View All Projects <ion-icon name="arrow-forward" class="ml-2"></ion-icon>
+            
+            <div class="hero-scroll-indicator">
+                <a href="#about" class="scroll-link nav-action">
+                    <span class="mouse-icon">
+                        <span class="wheel"></span>
+                    </span>
+                    <span class="scroll-text">About Us</span>
                 </a>
             </div>
-        </div>
+        </section>
 
-        <!-- Gallery Strip -->
-        <div
-            class="flex space-x-6 overflow-x-auto pb-8 px-4 md:px-0 md:pl-[max(1rem,calc((100vw-80rem)/2))] scrollbar-hide">
-            <!-- Item 1 -->
-            <div
-                class="flex-none w-80 md:w-96 aspect-[4/5] relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg">
-                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2727&auto=format&fit=crop"
-                    alt="Project 1"
-                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
-                </div>
-                <div class="absolute bottom-0 left-0 p-6">
-                    <span class="text-brand-accent text-xs font-bold uppercase tracking-wider">Branding</span>
-                    <h3 class="text-2xl font-bold text-white mt-1">Neon Cafe</h3>
-                </div>
-            </div>
-            <!-- Item 2 -->
-            <div
-                class="flex-none w-80 md:w-96 aspect-[4/5] relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
-                    alt="Project 2"
-                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
-                </div>
-                <div class="absolute bottom-0 left-0 p-6">
-                    <span class="text-pink-500 text-xs font-bold uppercase tracking-wider">Social Media</span>
-                    <h3 class="text-2xl font-bold text-white mt-1">Fitness Pro</h3>
-                </div>
-            </div>
-            <!-- Item 3 -->
-            <div
-                class="flex-none w-80 md:w-96 aspect-[4/5] relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop"
-                    alt="Project 3"
-                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
-                </div>
-                <div class="absolute bottom-0 left-0 p-6">
-                    <span class="text-blue-400 text-xs font-bold uppercase tracking-wider">Web Design</span>
-                    <h3 class="text-2xl font-bold text-white mt-1">Tech Startup</h3>
-                </div>
-            </div>
-            <!-- Item 4 -->
-            <div
-                class="flex-none w-80 md:w-96 aspect-[4/5] relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg">
-                <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=2670&auto=format&fit=crop"
-                    alt="Project 4"
-                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
-                </div>
-                <div class="absolute bottom-0 left-0 p-6">
-                    <span class="text-brand-accent text-xs font-bold uppercase tracking-wider">Package Design</span>
-                    <h3 class="text-2xl font-bold text-white mt-1">Organic Juice</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- About Section -->
+        <section id="about" class="about-section page-section">
+            <div class="section-container">
+                <div class="about-grid">
+                    <div class="about-visual">
+                        <div class="about-image-wrapper">
+                            <div class="glow-border-container">
+                                <img src="assets/about_showcase.png" alt="D Art Graphic Workspace" class="about-img">
+                            </div>
+                            <div class="experience-badge animate-float">
+                                <span class="exp-num">6+</span>
+                                <span class="exp-text">Years of Excellence</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-content">
+                        <div class="section-header">
+                            <span class="subheading">Who We Are</span>
+                            <h2 class="section-title">Design Agencies Speak in Visuals. We Speak in Growth.</h2>
+                        </div>
+                        
+                        <p class="about-desc">
+                            D Art Graphic is a professional creative agency helping businesses grow through branding, graphic design, social media visuals, print media, and digital content creation. We bridge the gap between imagination and execution.
+                        </p>
+                        <p class="about-desc">
+                            Our design philosophy revolves around clarity, impact, and aesthetic excellence. We partner with companies globally to create lasting visual identities.
+                        </p>
 
-    <!-- CTA Section -->
-    <section class="py-24 relative overflow-hidden transition-colors duration-300">
-        <div class="absolute inset-0 bg-gradient-to-r from-violet-900 to-fuchsia-900 opacity-15 dark:opacity-20"></div>
-        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
-            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">Ready to Start?</h2>
-            <p class="text-xl text-gray-700 dark:text-gray-300 mb-10">Let's turn your ideas into a visual reality. Contact us today for a
-                free consultation.</p>
-            <a href="contact.html"
-                class="inline-block bg-gray-900 dark:bg-white text-white dark:text-brand-dark hover:bg-gray-800 dark:hover:bg-gray-100 font-bold py-4 px-12 rounded-full text-lg transition-all transform hover:scale-105 shadow-2xl shadow-brand-accent/30">
-                Contact Us Now
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-white dark:bg-black py-12 border-t border-gray-200 dark:border-gray-900 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="col-span-1 md:col-span-2">
-                    <a href="#" class="text-2xl font-bold text-gray-900 dark:text-white tracking-tighter mb-4 block">
-                        D Art <span class="text-brand-accent">Graphic</span>
-                    </a>
-                    <p class="text-gray-600 dark:text-gray-500 max-w-sm">Premium graphic design services for brands that want to stand out.
-                        Quality, creativity, and speed.</p>
-                </div>
-                <div>
-                    <h4 class="text-gray-900 dark:text-white font-bold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
-                        <li><a href="index.html" class="hover:text-brand-accent transition-colors">Home</a></li>
-                        <li><a href="portfolio.html" class="hover:text-brand-accent transition-colors">Our Work</a>
-                        </li>
-                        <li><a href="services.html" class="hover:text-brand-accent transition-colors">Services</a></li>
-                        <li><a href="about.html" class="hover:text-brand-accent transition-colors">About</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-gray-900 dark:text-white font-bold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
-                        <li class="flex items-center gap-2"><ion-icon name="mail"></ion-icon> hello@dartgraphic.com</li>
-                        <li class="flex items-center gap-2"><ion-icon name="call"></ion-icon> +1 234 567 890</li>
-                        <li class="flex items-center gap-2"><ion-icon name="location"></ion-icon> Colombo, Sri Lanka
-                        </li>
-                    </ul>
-                    <div class="flex gap-4 mt-6">
-                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white text-xl"><ion-icon
-                                name="logo-facebook"></ion-icon></a>
-                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white text-xl"><ion-icon
-                                name="logo-instagram"></ion-icon></a>
-                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white text-xl"><ion-icon
-                                name="logo-twitter"></ion-icon></a>
+                        <!-- Counter Grid -->
+                        <div class="counter-grid">
+                            <div class="counter-card" data-target="500">
+                                <h3 class="counter-number"><span class="count-value">0</span>+</h3>
+                                <p class="counter-label">Projects Completed</p>
+                            </div>
+                            <div class="counter-card" data-target="300">
+                                <h3 class="counter-number"><span class="count-value">0</span>+</h3>
+                                <p class="counter-label">Happy Clients</p>
+                            </div>
+                            <div class="counter-card" data-target="6">
+                                <h3 class="counter-number"><span class="count-value">0</span>+</h3>
+                                <p class="counter-label">Years Experience</p>
+                            </div>
+                            <div class="counter-card" data-target="1000">
+                                <h3 class="counter-number"><span class="count-value">0</span>+</h3>
+                                <p class="counter-label">Designs Delivered</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-200 dark:border-gray-900 mt-12 pt-8 text-center text-gray-600 dark:text-gray-600 text-sm">
-                &copy; 2026 D Art Graphic. All rights reserved.
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section page-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="subheading">Our Expertise</span>
+                    <h2 class="section-title">Design Solutions Crafted For Your Success</h2>
+                    <p class="section-subtitle">We offer a wide spectrum of creative services to elevate your brand presence across all channels.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- 1. Logo Design -->
+                    <div class="service-card">
+                        <div class="service-card-glow"></div>
+                        <div class="service-icon">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <h3 class="service-title">Logo Design</h3>
+                        <p class="service-desc">Crafting memorable, distinct logos that encapsulate your core values and leave a lasting first impression.</p>
+                        <a href="#contact" class="service-link nav-action">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+
+                    <!-- 2. Brand Identity -->
+                    <!--<div class="service-card">
+                        <div class="service-card-glow"></div>
+                        <div class="service-icon">
+                            <i class="fa-solid fa-fingerprint"></i>
+                        </div>
+                        <h3 class="service-title">Brand Identity</h3>
+                        <p class="service-desc">Defining comprehensive branding strategies, color palettes, stationery, and visual guidelines.</p>
+                        <a href="#contact" class="service-link nav-action">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+
+                    <!-- 3. Social Media Design -->
+                    <div class="service-card">
+                        <div class="service-card-glow"></div>
+                        <div class="service-icon">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </div>
+                        <h3 class="service-title">Social Media Design</h3>
+                        <p class="service-desc">Vibrant posts, stories, and cover layouts optimized for maximum engagement and brand consistency.</p>
+                        <a href="#contact" class="service-link nav-action">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+
+                    <!-- 4. Poster Design -->
+                    <div class="service-card">
+                        <div class="service-card-glow"></div>
+                        <div class="service-icon">
+                            <i class="fa-solid fa-image"></i>
+                        </div>
+                        <h3 class="service-title">Poster Design</h3>
+                        <p class="service-desc">Bold and artistic poster prints that demand attention and communicate events or products clearly.</p>
+                        <a href="#contact" class="service-link nav-action">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+
+                    <!-- 5. Flyer Design -->
+                    <!--<div class="service-card">
+                        <div class="service-card-glow"></div>
+                        <div class="service-icon">
+                            <i class="fa-solid fa-scroll"></i>
+                        </div>
+                        <h3 class="service-title">Flyer Design</h3>
+                        <p class="service-desc">Strategic marketing layouts in print formats for handouts, promos, business listings, and campaigns.</p>
+                        <a href="#contact" class="service-link nav-action">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+
+                    <!-- 6. Banner Design -->
+                    <div class="service-card">
+                        <div class="service-card-glow"></div>
+                        <div class="service-icon">
+                            <i class="fa-solid fa-rectangle-ad"></i>
+                        </div>
+                        <h3 class="service-title">Banner Design</h3>
+                        <p class="service-desc">High-quality indoor, outdoor, and web advertising banners configured to capture visual interest.</p>
+                        <a href="#contact" class="service-link nav-action">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+
+                    <!-- 7. Business Card Design -->
+                    <div class="service-card">
+                        <div class="service-card-glow"></div>
+                        <div class="service-icon">
+                            <i class="fa-solid fa-address-card"></i>
+                        </div>
+                        <h3 class="service-title">Business Card Design</h3>
+                        <p class="service-desc">Elegant business card concepts matching premium print specifications and modern shapes.</p>
+                        <a href="#contact" class="service-link nav-action">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+
+                    <!-- 8. Packaging Design -->
+                    <!--<div class="service-card">
+                        <div class="service-card-glow"></div>
+                        <div class="service-icon">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                        <h3 class="service-title">Packaging Design</h3>
+                        <p class="service-desc">Custom luxury labels, bags, boxes, and wrappers designed to tell your product's unique story.</p>
+                        <a href="#contact" class="service-link nav-action">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+
+                    <!-- 9. YouTube Thumbnail Design -->
+                    <div class="service-card">
+                        <div class="service-card-glow"></div>
+                        <div class="service-icon">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                        <h3 class="service-title">YouTube Thumbnail Design</h3>
+                        <p class="service-desc">High-CTR, attention-grabbing thumbnails tailored with dynamic graphics, expressions, and titles.</p>
+                        <a href="#contact" class="service-link nav-action">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+
+                    <!-- 10. Advertising Design -->
+                    <div class="service-card">
+                        <div class="service-card-glow"></div>
+                        <div class="service-icon">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="service-title">Advertising Design</h3>
+                        <p class="service-desc">Compelling graphic banners, newspaper layouts, and digital ads to drive target click conversions.</p>
+                        <a href="#contact" class="service-link nav-action">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+
+                    <!-- 11. Print Design -->
+                    <div class="service-card">
+                        <div class="service-card-glow"></div>
+                        <div class="service-icon">
+                            <i class="fa-solid fa-print"></i>
+                        </div>
+                        <h3 class="service-title">Print Design</h3>
+                        <p class="service-desc">Brochures, magazines, booklets, menus, and print media layouts built with perfect colors.</p>
+                        <a href="#contact" class="service-link nav-action">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+
+                    <!-- 12. Video Editing -->
+                    <div class="service-card">
+                        <div class="service-card-glow"></div>
+                        <div class="service-icon">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <h3 class="service-title">Video Editing</h3>
+                        <p class="service-desc">Premium color grading, visual effects, and audio mixing for social ads, reels, and YouTube media.</p>
+                        <a href="#contact" class="service-link nav-action">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio-section page-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="subheading">Our Showcase</span>
+                    <h2 class="section-title">Crafting Creative Success Stories</h2>
+                    <p class="section-subtitle">A curated gallery of recent design systems, brand components, and multimedia solutions.</p>
+                </div>
+
+                <!-- Portfolio Filters -->
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="logo">Logo Design</button>
+                    <button class="filter-btn" data-filter="branding">Branding</button>
+                    <button class="filter-btn" data-filter="social">Social Media</button>
+                    <button class="filter-btn" data-filter="print">Print Design</button>
+                    <button class="filter-btn" data-filter="packaging">Packaging</button>
+                    <button class="filter-btn" data-filter="advertising">Advertising</button>
+                    <button class="filter-btn" data-filter="video">Video Editing</button>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div class="portfolio-grid">
+                    <!-- Project 1 (Logo) -->
+                    <div class="portfolio-item" data-category="logo">
+                        <div class="portfolio-image-box">
+                            <img src="assets/portfolio_logo.png" alt="Futuristic Tech Logo" class="portfolio-img">
+                            <div class="portfolio-hover-overlay">
+                                <div class="portfolio-details">
+                                    <span class="portfolio-cat">Logo Design</span>
+                                    <h4 class="portfolio-item-title">Aether Tech Emblem</h4>
+                                    <button class="lightbox-trigger" data-image="assets/portfolio_logo.png" data-title="Aether Tech Emblem" data-desc="Minimalist luxury geometric technology logo featuring deep violet and purple neon elements.">
+                                        <i class="fa-solid fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 (Branding) -->
+                    <div class="portfolio-item" data-category="branding">
+                        <div class="portfolio-image-box">
+                            <img src="assets/portfolio_branding.png" alt="Corporate Branding Stationeries" class="portfolio-img">
+                            <div class="portfolio-hover-overlay">
+                                <div class="portfolio-details">
+                                    <span class="portfolio-cat">Branding</span>
+                                    <h4 class="portfolio-item-title">Vertex Branding Suite</h4>
+                                    <button class="lightbox-trigger" data-image="assets/portfolio_branding.png" data-title="Vertex Branding Suite" data-desc="A full corporate identity suite including business cards, letterheads, and notebooks with elegant purple gradients.">
+                                        <i class="fa-solid fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 (Social Media) -->
+                    <div class="portfolio-item" data-category="social">
+                        <div class="portfolio-image-box">
+                            <img src="assets/portfolio_social.png" alt="Social Media Fashion Banner" class="portfolio-img">
+                            <div class="portfolio-hover-overlay">
+                                <div class="portfolio-details">
+                                    <span class="portfolio-cat">Social Media</span>
+                                    <h4 class="portfolio-item-title">Japanees Post</h4>
+                                    <button class="lightbox-trigger" data-image="assets/portfolio_social.png" data-title="Glow Campaign Layouts" data-desc="Vibrant, high-contrast Instagram and Facee book grids with strong typography and purple neon accents for a tech startup launch.">
+                                        <i class="fa-solid fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 (Print) -->
+                    <div class="portfolio-item" data-category="print">
+                        <div class="portfolio-image-box">
+                            <img src="assets/portfolio_print.png" alt="Premium Poster Layout" class="portfolio-img">
+                            <div class="portfolio-hover-overlay">
+                                <div class="portfolio-details">
+                                    <span class="portfolio-cat">Print Design</span>
+                                    <h4 class="portfolio-item-title">Elysium Arts Poster</h4>
+                                    <button class="lightbox-trigger" data-image="assets/portfolio_print.png" data-title="Elysium Arts Poster" data-desc="High-resolution poster designed for a creative arts festival using abstract geometries and sleek futuristic fonts.">
+                                        <i class="fa-solid fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 (Packaging) -->
+                    <div class="portfolio-item" data-category="packaging">
+                        <div class="portfolio-image-box">
+                            <img src="assets/portfolio_packaging.png" alt="Luxury Cosmetics Package" class="portfolio-img">
+                            <div class="portfolio-hover-overlay">
+                                <div class="portfolio-details">
+                                    <span class="portfolio-cat">Packaging</span>
+                                    <h4 class="portfolio-item-title">Nox Cosmetic Box</h4>
+                                    <button class="lightbox-trigger" data-image="assets/portfolio_packaging.png" data-title="Nox Cosmetic Box" data-desc="Sleek, minimalist product box design utilizing metallic purple lining and high-end typography on matte black cardboard.">
+                                        <i class="fa-solid fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 (Advertising) -->
+                    <div class="portfolio-item" data-category="advertising">
+                        <div class="portfolio-image-box">
+                            <img src="assets/portfolio_advertising.png" alt="Digital Billboard Ad" class="portfolio-img">
+                            <div class="portfolio-hover-overlay">
+                                <div class="portfolio-details">
+                                    <span class="portfolio-cat">Advertising</span>
+                                    <h4 class="portfolio-item-title">Launch Promo Ad</h4>
+                                    <button class="lightbox-trigger" data-image="assets/portfolio_advertising.png" data-title="Launch Promo Ad" data-desc="Premium digital ad campaigns optimized for conversion rates, using high impact visual hierarchies and clear messaging.">
+                                        <i class="fa-solid fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 7 (Video) -->
+                    <div class="portfolio-item" data-category="video">
+                        <div class="portfolio-image-box">
+                            <img src="assets/portfolio_video.png" alt="Video Editor UI Preview" class="portfolio-img">
+                            <div class="portfolio-hover-overlay">
+                                <div class="portfolio-details">
+                                    <span class="portfolio-cat">Video Editing</span>
+                                    <h4 class="portfolio-item-title">Concept Motion Promo</h4>
+                                    <button class="lightbox-trigger" data-image="assets/portfolio_video.png" data-title="Concept Motion Promo" data-desc="High-fidelity 3D motion graphics promo, color-graded and animated for a premium electric vehicle announcement.">
+                                        <i class="fa-solid fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Gallery Showcase Banner nested inside Portfolio page -->
+            <div class="gallery-showcase-section">
+                <div class="section-container-full">
+                    <div class="showcase-banner">
+                        <div class="showcase-content">
+                            <h3 class="showcase-headline">Exceptional Design Meets Seamless Execution.</h3>
+                            <p class="showcase-paragraph">We dive deep into your brand story to discover its visual essence.</p>
+                            <a href="#contact" class="btn btn-primary nav-action">Start Your Project</a>
+                        </div>
+                        <div class="parallax-bg-wrapper">
+                            <img src="assets/hero_render.png" alt="Showcase Background" class="parallax-bg-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <!-- <section id="testimonials" class="testimonials-section page-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="subheading">Client Feedback</span>
+                    <h2 class="section-title">What Our Partners Say About Us</h2>
+                    <p class="section-subtitle">We build long-term relationships through trust, consistency, and exceptional design delivery.</p>
+                </div>
+
+                <!-- Swiper Container -->
+                <!--<div class="swiper testimonials-slider">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <!-- <div class="swiper-slide testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <div class="testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "D Art Graphic did an incredible job redefining our brand. Their logos and packaging layouts look stunning and have gotten massive appreciation from our customers. Highly professional team!"
+                            </p>
+                            <div class="client-info">
+                                <div class="client-avatar grad-1">AM</div>
+                                <div class="client-meta">
+                                    <h4 class="client-name">Aravinda Mendis</h4>
+                                    <span class="client-role">Founder, Ceylon Organics</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <!-- <div class="swiper-slide testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <div class="testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Our social media engagement grew by 150% in three months after outsourcing our campaign designs to D Art Graphic. Their visual language is clear, futuristic, and highly converting."
+                            </p>
+                            <div class="client-info">
+                                <div class="client-avatar grad-2">SP</div>
+                                <div class="client-meta">
+                                    <h4 class="client-name">Sahan Perera</h4>
+                                    <span class="client-role">Marketing Lead, Vertex Technologies</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <!-- <div class="swiper-slide testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <div class="testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "We needed brochures and exhibition banners on very short notice. D Art Graphic delivered top-tier print designs within 48 hours. The color matching and vector precision were perfect."
+                            </p>
+                            <div class="client-info">
+                                <div class="client-avatar grad-3">ND</div>
+                                <div class="client-meta">
+                                    <h4 class="client-name">Nilushi de Silva</h4>
+                                    <span class="client-role">Events Manager, Spark Innovations</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <!-- <div class="swiper-slide testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <div class="testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Their video editing and motion graphics workflow is elite. They compiled our conceptual promos with transitions and color corrections that exceeded our expectations. Highly recommended!"
+                            </p>
+                            <div class="client-info">
+                                <div class="client-avatar grad-4">KF</div>
+                                <div class="client-meta">
+                                    <h4 class="client-name">Kasun Fernando</h4>
+                                    <span class="client-role">Content Creator, AutoVlog LK</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5 -->
+                        <!-- <div class="swiper-slide testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <div class="testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Outstanding YouTube thumbnails and social banner layouts! D Art Graphic knows exactly how to capture visual attention in crowded digital spaces. Very patient with feedback and revisions."
+                            </p>
+                            <div class="client-info">
+                                <div class="client-avatar grad-5">RJ</div>
+                                <div class="client-meta">
+                                    <h4 class="client-name">Ruwan Jayasekara</h4>
+                                    <span class="client-role">Independent YouTuber & Vlogger</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 6 -->
+                        <!-- <div class="swiper-slide testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <div class="testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Creating our brand guidelines handbook with D Art Graphic was a breeze. They understood our visual challenges and provided clean, responsive layout design patterns that we use daily."
+                            </p>
+                            <div class="client-info">
+                                <div class="client-avatar grad-6">IK</div>
+                                <div class="client-meta">
+                                    <h4 class="client-name">Imran Khan</h4>
+                                    <span class="client-role">Director, Nexus Apparel Group</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Swiper Pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                    <!-- Swiper Navigation -->
+                    <!--<div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section page-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="subheading">Common Queries</span>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Everything you need to know about our design process, deliverables, and terms.</p>
+                </div>
+
+                <div class="faq-accordion-container">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What does your creative design process look like?</span>
+                            <span class="faq-icon-box"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our process has four distinct phases: Discovery (researching your industry and target customer), Conceptualization (drafting initial sketches and options), Design Iteration (redefining selections based on your direct feedback), and Final Delivery (supplying all source files, guides, and exports).</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do you structure your design pricing?</span>
+                            <span class="faq-icon-box"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We work with both fixed project-based pricing (for standard requirements like logo design, packaging, and brand identities) and monthly retainer arrangements (for ongoing social media branding, advertising banners, and video editing). We provide detailed quotes prior to kickoff.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What is the typical delivery timeframe?</span>
+                            <span class="faq-icon-box"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Delivery depends entirely on project complexity. Individual assets (like posters, social media banners, and business cards) take 2-4 business days. Comprehensive brand identities and complex packaging projects typically take 2-3 weeks, with scheduled milestone previews.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What is your revision policy?</span>
+                            <span class="faq-icon-box"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We prioritize client satisfaction. Standard projects include 3-5 rounds of comprehensive feedback loops/revisions to refine shapes, colors, and typographies. We work closely with you at each step to ensure the results align perfectly with your vision.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>In what file formats do you deliver the final designs?</span>
+                            <span class="faq-icon-box"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We deliver complete high-resolution, print-ready, and digital-ready assets. This includes vector source files (.AI, .EPS, .PDF, .SVG) as well as standardized image formats (.PNG, .JPG) with transparent layers and style guide booklets.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do you offer post-project support?</span>
+                            <span class="faq-icon-box"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, we provide 30 days of complimentary support after final files are handed over. This includes addressing print sizing queries, providing additional file conversions, or assisting with deployment across platforms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section page-section">
+            <div class="section-container">
+                <div class="contact-grid">
+                    <div class="contact-info-panel">
+                        <div class="section-header">
+                            <span class="subheading">Start A Conversation</span>
+                            <h2 class="section-title">Let's Create Something <span class="gradient-text">Extraordinary</span></h2>
+                        </div>
+                        <p class="contact-panel-text">
+                            Have an idea or project in mind? Fill out our form or contact us through our direct email or telephone. Our team will get back to you within 24 hours.
+                        </p>
+                        
+                        <div class="contact-details-list">
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="detail-text">
+                                    <h4>Location</h4>
+                                    <p>Sri Lanka</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="detail-text">
+                                    <h4>Email Us</h4>
+                                    <p><a href="mailto:dartgraphic295@gmail.com">dartgraphic295@gmail.com</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
+                                <div class="detail-text">
+                                    <h4>Call Us</h4>
+                                    <p><a href="tel:+94771234567">+94 75 547 3912</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-social-icons">
+                            <a href="#" class="social-link" data-social="facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="social-link" data-social="instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-link" data-social="linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link" data-social="tiktok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Card -->
+                    <div class="contact-form-card">
+                        <h3 class="form-title">Send a Message</h3>
+                        <form id="contact-form" novalidate>
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="form-name">Full Name *</label>
+                                    <input type="text" id="form-name" required placeholder="e.g. Ruwan Silva">
+                                    <span class="error-msg">Name is required</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-email">Email Address *</label>
+                                    <input type="email" id="form-email" required placeholder="e.g. ruwan@mail.com">
+                                    <span class="error-msg">Provide a valid email address</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="form-phone">Phone Number *</label>
+                                    <input type="tel" id="form-phone" required placeholder="e.g. +94 77 123 4567">
+                                    <span class="error-msg">Phone number is required</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-service">Service Required *</label>
+                                    <div class="select-wrapper">
+                                        <select id="form-service" required>
+                                            <option value="" disabled selected>Select a Service</option>
+                                            <option value="Logo Design">Logo Design</option>
+                                            <option value="Brand Identity">Brand Identity</option>
+                                            <option value="Social Media Design">Social Media Design</option>
+                                            <option value="Poster / Flyer Design">Poster / Flyer Design</option>
+                                            <option value="Packaging Design">Packaging Design</option>
+                                            <option value="Video Editing">Video Editing</option>
+                                            <option value="Other Design Requirements">Other Design Requirements</option>
+                                        </select>
+                                    </div>
+                                    <span class="error-msg">Select a service</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="form-details">Project Details *</label>
+                                <textarea id="form-details" rows="5" required placeholder="Describe your project goals, timelines, and ideas..."></textarea>
+                                <span class="error-msg">Project details are required</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <span>Send Message</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        <div id="form-status" class="form-status-alert"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="section-container">
+                <div class="footer-grid">
+                    <div class="footer-col brand-col">
+                        <a href="#home" class="footer-logo nav-action">
+                            <img src="assets/Dart Graphics Logo.png" alt="Dart Graphics Logo" class="footer-logo-img">
+                        </a>
+                        <p class="footer-brand-desc">
+                            Transforming Ideas Into Stunning Visual Experiences. We are a professional creative agency dedicated to brand acceleration.
+                        </p>
+                        <p class="footer-loc-info"><i class="fa-solid fa-earth-asia"></i> Sri Lanka</p>
+                    </div>
+
+                    <div class="footer-col link-col">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul>
+                            <li><a href="#home" class="nav-action">Home</a></li>
+                            <li><a href="#about" class="nav-action">About Us</a></li>
+                            <li><a href="#services" class="nav-action">Our Services</a></li>
+                            <li><a href="#portfolio" class="nav-action">Our Portfolio</a></li>
+                            <li><a href="#testimonials" class="nav-action">Testimonials</a></li>
+                            <li><a href="#contact" class="nav-action">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col link-col">
+                        <h4 class="footer-title">Our Services</h4>
+                        <ul>
+                            <li><a href="#services" class="nav-action">Logo Design</a></li>
+                            <li><a href="#services" class="nav-action">Brand Identity</a></li>
+                            <li><a href="#services" class="nav-action">Social Media Design</a></li>
+                            <li><a href="#services" class="nav-action">Print Design</a></li>
+                            <li><a href="#services" class="nav-action">Packaging Design</a></li>
+                            <li><a href="#services" class="nav-action">Video Editing</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col contact-col">
+                        <h4 class="footer-title">Stay Connected</h4>
+                        <p class="footer-contact-item"><i class="fa-solid fa-envelope"></i> dartgraphic295@gmail.com</p>
+                        <p class="footer-contact-item"><i class="fa-solid fa-phone"></i> +94 75 547 3912</p>
+                        <div class="footer-socials">
+                            <a href="#" class="social-circle" data-social="facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="social-circle" data-social="instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-circle" data-social="linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="social-circle" data-social="tiktok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="section-container">
+                <div class="footer-bottom-flex">
+                   <!---- <p class="copyright">&copy; 2026 D Art Graphic. All Rights Reserved.</p> -->
+                    <!-- <p class="footer-designed-by">Designed with <i class="fa-solid fa-heart text-blue"></i> by Antigravity</p> -->
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Portfolio Lightbox Modal -->
+    <div class="lightbox-modal" id="lightbox-modal">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox"><i class="fa-solid fa-xmark"></i></button>
+        <div class="lightbox-content">
+            <div class="lightbox-image-container">
+                <img src="" alt="Lightbox Zoom" id="lightbox-img">
+            </div>
+            <div class="lightbox-details">
+                <h4 id="lightbox-title">Project Title</h4>
+                <p id="lightbox-desc">Project Description details go here.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Custom Script -->
     <script src="script.js"></script>
-    <script src="js/cms.js"></script>
-
-    <!-- Hidden Admin Link (Double click footer copyright to access) -->
-    <script>
-        document.querySelector('footer div.text-gray-600, footer div.dark\\:text-gray-600')?.addEventListener('dblclick', () => window.location.href = 'login.html');
-    </script>
-
-    <!-- ✅ Theme Toggle Logic -->
-    <script>
-        const htmlEl = document.documentElement;
-
-        const desktopToggle = document.getElementById('theme-toggle');
-        const desktopIcon = document.getElementById('theme-icon');
-
-        const mobileToggle = document.getElementById('theme-toggle-mobile');
-        const mobileIcon = document.getElementById('theme-icon-mobile');
-
-        function setIcons(isDark) {
-            const iconName = isDark ? 'moon-outline' : 'sunny-outline';
-            if (desktopIcon) desktopIcon.setAttribute('name', iconName);
-            if (mobileIcon) mobileIcon.setAttribute('name', iconName);
-        }
-
-        function applyTheme(theme) {
-            const isDark = theme === 'dark';
-            htmlEl.classList.toggle('dark', isDark);
-            setIcons(isDark);
-        }
-
-        // 1) Load saved theme, else detect system preference
-        const saved = localStorage.getItem('theme');
-        if (saved === 'dark' || saved === 'light') {
-            applyTheme(saved);
-        } else {
-            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            applyTheme(prefersDark ? 'dark' : 'light');
-        }
-
-        // 2) Toggle handler
-        function toggleTheme() {
-            const isDarkNow = htmlEl.classList.contains('dark');
-            const nextTheme = isDarkNow ? 'light' : 'dark';
-            localStorage.setItem('theme', nextTheme);
-            applyTheme(nextTheme);
-        }
-
-        desktopToggle?.addEventListener('click', toggleTheme);
-        mobileToggle?.addEventListener('click', toggleTheme);
-    </script>
-
 </body>
-
 </html>
-```
